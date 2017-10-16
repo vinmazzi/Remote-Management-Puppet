@@ -1,0 +1,47 @@
+{
+  "name": "puppet-corosync",
+  "version": "5.0.0",
+  "author": "Vox Pupuli",
+  "summary": "This module is a set of manifests and types/providers for quickly setting up highly available clusters using Corosync and Pacemaker",
+  "license": "Apache-2.0",
+  "source": "https://github.com/voxpupuli/puppet-corosync",
+  "project_page": "https://github.com/voxpupuli/puppet-corosync",
+  "issues_url": "https://github.com/voxpupuli/puppet-corosync/issues",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":"4.x"}
+  ],
+  "data_provider": null,
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "16.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.8.0 < 5.0.0"
+    }
+  ]
+}

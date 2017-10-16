@@ -1,0 +1,6 @@
+---
+mzbox_database_name: 'mzbox'
+mzbox_database_user_name: 'mzbox_user'
+mzbox_database_user_password: 'mzbox_user'
+mcollective::client: false
+mcollective::server: true

@@ -1,0 +1,16 @@
+[Unit]
+Description=NATS.io Messaging System
+After=network.target
+
+[Service]
+StandardOutput=syslog
+StandardError=syslog
+User=<%= $nats::user %>
+Group=<%= $nats::group %>
+<% if $nats::limit_nofile { -%>
+LimitNOFILE=<%= $nats::limit_nofile %>
+<% } -%>
+ExecStart=<%= $nats::binpath %> --config <%= $nats::configdir %>/<%= $nats::service_name %>.cfg -s
+
+[Install]
+WantedBy=multi-user.target

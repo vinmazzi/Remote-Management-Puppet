@@ -1,0 +1,131 @@
+# This file is managed by Puppet.
+# Changes made manually may be lost.
+
+<% unless @compatibility.nil? -%>
+compatibility: <%= @compatibility %>
+
+<% end -%>
+totem {
+  version:                             2
+<% unless @cluster_name.nil? -%>
+  cluster_name:                        <%= @cluster_name %>
+<% end -%>
+<% unless @token.nil? -%>
+  token:                               <%= @token %>
+<% end -%>
+<% unless @token_retransmits_before_loss_const.nil? -%>
+  token_retransmits_before_loss_const: <%= @token_retransmits_before_loss_const %>
+<% end -%>
+<% unless @join.nil? -%>
+  join:                                <%= @join %>
+<% end -%>
+<% unless @consensus.nil? -%>
+  consensus:                           <%= @consensus %>
+<% end -%>
+<% unless @vsftype.nil? -%>
+  vsftype:                             <%= @vsftype %>
+<% end -%>
+<% unless @max_messages.nil? -%>
+  max_messages:                        <%= @max_messages %>
+<% end -%>
+<% unless @clear_node_high_bit.nil? -%>
+  clear_node_high_bit:                 <% @clear_node_high_bit %>
+<% end -%>
+<% unless @rrp_mode.nil? -%>
+  rrp_mode:                            <%= @rrp_mode %>
+<% end -%>
+  secauth:                             <%= @enable_secauth_real %>
+<% unless @threads.nil? -%>
+  threads:                             <%= @threads %>
+<% end -%>
+<% if @unicast_addresses != 'UNSET' -%>
+  transport:                           udpu
+<% Array(@unicast_addresses.first).each_index do |interface| -%>
+  interface {
+<% Array(Array(@unicast_addresses.map{|x| Array(x).flatten}).transpose[interface]).each do |addr| -%>
+    member {
+      memberaddr: <%= addr %>
+    }
+<% end -%>
+    ringnumber:  <%= interface %>
+    bindnetaddr: <%= Array(@bind_address)[interface] %>
+    mcastport:   <%= Array(@port)[interface] || @port %>
+<% if @ttl -%>
+    ttl:         <%= Array(@ttl)[interface] || @ttl %>
+<% end -%>
+  }
+<% end -%>
+<% else -%>
+<% [@bind_address].flatten.each_index do |i| -%>
+  interface {
+    ringnumber:  <%= i %>
+    bindnetaddr: <%= [@bind_address].flatten[i] %>
+<% if @multicast_address == 'UNSET' -%>
+<% elsif [@multicast_address].flatten[i] == 'broadcast' -%>
+    broadcast:   yes
+<% else -%>
+    mcastaddr:   <%= [@multicast_address].flatten[i] %>
+<% end -%>
+    mcastport:   <%= [@port].flatten[i] %>
+<% if @ttl -%>
+    ttl:         <%= @ttl %>
+<% end -%>
+  }
+<% end -%>
+<% end -%>
+}
+
+logging {
+  fileline:        off
+<% if @log_stderr -%>
+  to_stderr:       yes
+<% else -%>
+  to_stderr:       no
+<% end -%>
+<% if @log_file -%>
+  to_logfile:      yes
+<% else -%>
+  to_logfile:      no
+<% end -%>
+  to_syslog:       yes
+  syslog_facility: daemon
+<% if @syslog_priority -%>
+  syslog_priority: <%= @syslog_priority %>
+<% end -%>
+<% if @log_function_name -%>
+  function_name:   on
+<% end -%>
+  debug:           <%= @debug ? 'on' : 'off' %>
+}
+
+<% if @set_votequorum -%>
+quorum {
+  provider: corosync_votequorum
+<% if @votequorum_expected_votes -%>
+  expected_votes: <%= @votequorum_expected_votes %>
+<%-# .to_i is needed for Puppet 3 -%>
+<% if @votequorum_expected_votes.to_i == 2 -%>
+  two_node: 1
+<% end -%>
+<% elsif Array(@quorum_members).count == 2 -%>
+  two_node: 1
+<% end -%>
+}
+
+<% if Array(@quorum_members).length > 0 -%>
+nodelist {
+<% Array(@quorum_members).each_index do |i| -%>
+  node {
+<% Array(Array(@quorum_members.map{|node| Array(node).flatten})[i]).each_with_index do |addr,ring| -%>
+    ring<%= ring %>_addr: <%= addr %>
+<% end -%>
+<% if @quorum_members_ids.nil? -%>
+    nodeid: <%= i+1 %>
+<% else -%>
+    nodeid: <%= [@quorum_members_ids].flatten[i] %>
+<% end -%>
+  }
+<% end -%>
+}
+<% end -%>
+<% end -%>

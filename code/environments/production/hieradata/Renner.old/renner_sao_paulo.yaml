@@ -1,0 +1,20 @@
+---
+  fwrules:
+          banana:
+                  nome: 1
+                  end: 2
+          maca:
+                 nome: 3
+                 end: 5 
+          regra3:
+               id: 15
+               group_fk: 1
+               rule_name_text: 'regra3'
+               source_text: '5.5.5.5'
+               destination_text: '6.6.6.6'
+               protocol_text: 'icmp'
+               chain_text: 'nil'
+               action_text: 'accept'
+               table_text: 'filte'
+               source_port: 1233
+               destination_port: 3321

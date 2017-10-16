@@ -1,0 +1,13 @@
+current directory: /home/travis/build/Yuav/puppet-refacter/vendor/bundle/ruby/2.3.0/gems/json-2.0.2/ext/json
+/home/travis/.rvm/rubies/ruby-2.3.1/bin/ruby -r ./siteconf20161109-5101-ciga7s.rb extconf.rb
+creating Makefile
+
+current directory: /home/travis/build/Yuav/puppet-refacter/vendor/bundle/ruby/2.3.0/gems/json-2.0.2/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/travis/build/Yuav/puppet-refacter/vendor/bundle/ruby/2.3.0/gems/json-2.0.2/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /home/travis/build/Yuav/puppet-refacter/vendor/bundle/ruby/2.3.0/gems/json-2.0.2/ext/json
+make "DESTDIR=" install

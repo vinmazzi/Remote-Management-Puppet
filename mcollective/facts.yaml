@@ -1,0 +1,330 @@
+aio_agent_version: 1.10.6
+augeas:
+  version: 1.4.0
+client_name: Renner
+disks:
+  sr0:
+    model: QEMU DVD-ROM
+    size: 1.00 GiB
+    size_bytes: 1073741312
+    vendor: QEMU
+  vda:
+    size: 10.00 GiB
+    size_bytes: 10737418240
+    vendor: 0x1af4
+dmi:
+  bios:
+    release_date: 01/01/2011
+    vendor: Seabios
+    version: 0.5.1
+  chassis:
+    type: Other
+  manufacturer: Red Hat
+  product:
+    name: KVM
+    uuid: FE2E0A03-4E51-4B2E-B94E-9B99133EDD0B
+facterversion: 3.6.6
+filesystems: xfs
+group_name: na
+identity:
+  gid: 0
+  group: root
+  privileged: true
+  uid: 0
+  user: root
+ip6tables_version: 1.4.21
+iptables_version: 1.4.21
+is_pe: false
+is_virtual: true
+java_default_home: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.141-1.b16.el7_3.x86_64
+java_libjvm_path: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.141-1.b16.el7_3.x86_64/jre/lib/amd64/server
+java_major_version: "8"
+java_patch_level: "141"
+java_version: 1.8.0_141
+kernel: Linux
+kernelmajversion: "3.10"
+kernelrelease: 3.10.0-514.el7.x86_64
+kernelversion: 3.10.0
+load_averages:
+  15m: 0.05
+  1m: 0.08
+  5m: 0.04
+mco_version: 2.10.5
+memory:
+  swap:
+    available: 961.52 MiB
+    available_bytes: 1008226304
+    capacity: 6.10%
+    total: 1.00 GiB
+    total_bytes: 1073737728
+    used: 62.48 MiB
+    used_bytes: 65511424
+  system:
+    available: 248.82 MiB
+    available_bytes: 260911104
+    capacity: 91.26%
+    total: 2.78 GiB
+    total_bytes: 2985873408
+    used: 2.54 GiB
+    used_bytes: 2724962304
+mountpoints:
+  /:
+    available: 5.57 GiB
+    available_bytes: 5984043008
+    capacity: 30.22%
+    device: /dev/mapper/cl-root
+    filesystem: xfs
+    options:
+      - rw
+      - seclabel
+      - relatime
+      - attr2
+      - inode64
+      - noquota
+    size: 7.99 GiB
+    size_bytes: 8575254528
+    used: 2.41 GiB
+    used_bytes: 2591211520
+  /boot:
+    available: 875.78 MiB
+    available_bytes: 918319104
+    capacity: 13.63%
+    device: /dev/vda1
+    filesystem: xfs
+    options:
+      - rw
+      - seclabel
+      - relatime
+      - attr2
+      - inode64
+      - noquota
+    size: 1014.00 MiB
+    size_bytes: 1063256064
+    used: 138.22 MiB
+    used_bytes: 144936960
+  /dev/shm:
+    available: 1.39 GiB
+    available_bytes: 1492930560
+    capacity: 0.00%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - seclabel
+      - nosuid
+      - nodev
+    size: 1.39 GiB
+    size_bytes: 1492934656
+    used: 4.00 KiB
+    used_bytes: 4096
+  /run:
+    available: 1.35 GiB
+    available_bytes: 1450438656
+    capacity: 2.85%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - seclabel
+      - nosuid
+      - nodev
+      - mode=755
+    size: 1.39 GiB
+    size_bytes: 1492934656
+    used: 40.53 MiB
+    used_bytes: 42496000
+  /run/user/0:
+    available: 284.76 MiB
+    available_bytes: 298590208
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - seclabel
+      - nosuid
+      - nodev
+      - relatime
+      - size=291592k
+      - mode=700
+    size: 284.76 MiB
+    size_bytes: 298590208
+    used: 0 bytes
+    used_bytes: 0
+  /run/user/1001:
+    available: 284.76 MiB
+    available_bytes: 298590208
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - rw
+      - seclabel
+      - nosuid
+      - nodev
+      - relatime
+      - size=291592k
+      - mode=700
+      - uid=1001
+      - gid=1001
+    size: 284.76 MiB
+    size_bytes: 298590208
+    used: 0 bytes
+    used_bytes: 0
+  /sys/fs/cgroup:
+    available: 1.39 GiB
+    available_bytes: 1492934656
+    capacity: 0%
+    device: tmpfs
+    filesystem: tmpfs
+    options:
+      - ro
+      - seclabel
+      - nosuid
+      - nodev
+      - noexec
+      - mode=755
+    size: 1.39 GiB
+    size_bytes: 1492934656
+    used: 0 bytes
+    used_bytes: 0
+network_nexthop_ip: 192.168.1.1
+network_primary_interface: ens9
+network_primary_ip: 192.168.1.201
+networking:
+  dhcp: 192.168.1.102
+  domain: localdomain
+  fqdn: puppetserver.localdomain
+  hostname: puppetserver
+  interfaces:
+    ens9:
+      bindings:
+        - address: 192.168.1.201
+          netmask: 255.255.255.0
+          network: 192.168.1.0
+      bindings6:
+        - address: "fe80::5054:ff:fe49:dda5"
+          netmask: "ffff:ffff:ffff:ffff::"
+          network: "fe80::"
+      dhcp: 192.168.1.102
+      ip: 192.168.1.201
+      ip6: "fe80::5054:ff:fe49:dda5"
+      mac: "52:54:00:49:dd:a5"
+      mtu: 1500
+      netmask: 255.255.255.0
+      netmask6: "ffff:ffff:ffff:ffff::"
+      network: 192.168.1.0
+      network6: "fe80::"
+    eth0:
+      dhcp: 192.168.122.1
+      mac: "52:54:00:45:11:b4"
+      mtu: 1500
+    lo:
+      bindings:
+        - address: 127.0.0.1
+          netmask: 255.0.0.0
+          network: 127.0.0.0
+      bindings6:
+        - address: "::1"
+          netmask: "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff"
+          network: "::1"
+      ip: 127.0.0.1
+      ip6: "::1"
+      mtu: 65536
+      netmask: 255.0.0.0
+      netmask6: "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff"
+      network: 127.0.0.0
+      network6: "::1"
+  ip: 192.168.1.201
+  ip6: "fe80::5054:ff:fe49:dda5"
+  mac: "52:54:00:49:dd:a5"
+  mtu: 1500
+  netmask: 255.255.255.0
+  netmask6: "ffff:ffff:ffff:ffff::"
+  network: 192.168.1.0
+  network6: "fe80::"
+  primary: ens9
+os:
+  architecture: x86_64
+  family: RedHat
+  hardware: x86_64
+  name: CentOS
+  release:
+    full: 7.3.1611
+    major: "7"
+    minor: "3"
+  selinux:
+    config_mode: enforcing
+    current_mode: permissive
+    enabled: true
+    enforced: false
+    policy_version: "28"
+package_provider: yum
+partitions:
+  /dev/mapper/cl-root:
+    filesystem: xfs
+    mount: /
+    size: 8.00 GiB
+    size_bytes: 8585740288
+    uuid: a2815a9c-1388-4309-ad11-cff35f5a7f5f
+  /dev/mapper/cl-swap:
+    filesystem: swap
+    size: 1.00 GiB
+    size_bytes: 1073741824
+    uuid: 4f71a640-62e3-4567-8906-4c753273ed2e
+  /dev/vda1:
+    filesystem: xfs
+    mount: /boot
+    size: 1.00 GiB
+    size_bytes: 1073741824
+    uuid: ad8fb9ac-7a13-4af8-bbec-023389ffbb87
+  /dev/vda2:
+    filesystem: LVM2_member
+    size: 9.00 GiB
+    size_bytes: 9662627840
+    uuid: fLAPkF-SXJU-h4CJ-CXVu-NJ8Q-bVzv-BHrsP2
+path: "/opt/puppet/bin:/opt/puppetlabs/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+processors:
+  count: 2
+  isa: x86_64
+  models:
+    - Intel Xeon E312xx (Sandy Bridge)
+    - Intel Xeon E312xx (Sandy Bridge)
+  physicalcount: 2
+puppet_environmentpath: /etc/puppetlabs/code/environments
+puppet_server: puppet
+puppet_vardir: /opt/puppetlabs/puppet/cache
+puppetversion: 4.10.6
+root_home: /root
+ruby:
+  platform: x86_64-linux
+  sitedir: /opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0
+  version: 2.1.9
+selinux_semanage_is_python3: false
+serial_number: N/A
+service_provider: systemd
+ssh:
+  ecdsa:
+    fingerprints:
+      sha1: SSHFP 3 1 63116e360b07130fcb9738afb03bfd69370fcd52
+      sha256: SSHFP 3 2 2b724057cb97f05842a96dd8d5cd9405d02097ec9c0084b985410f03403143c4
+    key: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBP8T4qxZh5va5/rLu4XV/ddkSnK1u8D48RD5oBbTAbfRCNjvIhK4ybXSGP1UfrKp3aX8P4CjGILvoiPeijmFP3A=
+  ed25519:
+    fingerprints:
+      sha1: SSHFP 4 1 38e3f3626ef551554fd58b6ba6bb6130f4fce439
+      sha256: SSHFP 4 2 4605459cea1f8bbdf0bcffa006451dfb351821af1791a5f2d8f9f6a3510f54e9
+    key: AAAAC3NzaC1lZDI1NTE5AAAAIEtnVjGIU16vD8PraQQnZHAV/M9sgC3J5jXTvvhKOp1s
+  rsa:
+    fingerprints:
+      sha1: SSHFP 1 1 ca9ce93de960fa9b7144e75165fbb89bbb04470f
+      sha256: SSHFP 1 2 56f17ce9554282ffddcf5c037e450926f082f4a7362ea6aca4e4e1080e5828dc
+    key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDsLOALK2NKhv59HzRa8CByqUDwGSzaelR8dTMINvUs8alKbHHCL1qLzUcvDjLNv58aG14NVtAtuKzw/jtI5oA4hWivIYrUMjDeeEij8rZRXhI3bR1dU9Zi5yO90FIlPtl9GsNTTaCDVBBfKDuyyalG2SyTBD4wks8KRnDsmSLPIjl697ar6tM+VqKl+onm8BwsVOcv6zzF8ogx8EQl5Z7dx5JMkhA5GD7qVdgSwsac594JsZSXuNENyKSrYRG6dC51CN3joD9NL8t/syrvIJpWPA2xNBJ6VT+BLYr8gTPvjg79tf7gZZVPWpXxIPVKjFu83BEKL+jFd4zSLdmJhqS9
+system_uptime:
+  days: 16
+  hours: 390
+  seconds: 1405942
+  uptime: 16 days
+systemd: true
+systemd_version: "219"
+timezone: EDT
+virtual: kvm

@@ -1,0 +1,9 @@
+---
+version: 5
+hierarchy:
+ - name: "Testing redis"
+   lookup_key: redis_lookup_key
+#   data_hash: json_data
+   options:
+          host: '192.168.122.132'
+          search: "%{facts.client_name}:%{facts.group_name}"

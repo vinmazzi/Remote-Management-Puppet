@@ -1,0 +1,45 @@
+net: "<%= $nats::listen_address %>"
+port: <%= $nats::client_port %>
+monitor_port: <%= $nats::monitor_port %>
+
+debug: <%= $nats::debug %>
+trace: <%= $nats::trace %>
+
+tls {
+  cert_file: "<%= $nats::cert_file %>"
+  key_file: "<%= $nats::key_file %>"
+  ca_file: "<%= $nats::ca_file %>"
+  verify: true
+  timeout: <%= $nats::tls_timeout %>
+}
+
+<% unless $nats::peers.empty { -%>
+cluster {
+  port: 4223
+  no_advertise: <%= !$nats::announce_cluster %>
+
+  tls {
+    cert_file: "<%= $nats::cert_file %>"
+    key_file: "<%= $nats::key_file %>"
+    ca_file: "<%= $nats::ca_file %>"
+    verify: true
+    timeout: <%= $nats::cluster_tls_timeout %>
+  }
+
+  authorization {
+    user: routes
+    password: "<%= $nats::routes_password %>"
+    timeout: 0.75
+  }
+
+  routes = [
+  <%- $nats::peers.each |$peer| { -%>
+    nats-route://routes:<%= $nats::routes_password %>@<%= $peer %>:<%= $nats::cluster_port %>
+  <%- } -%>
+  ]
+}
+<% } -%>
+
+max_payload: <%= $nats::max_payload_size %>
+max_pending_size: <%= $nats::max_pending_size %>
+max_connections: <%= $nats::max_connections %>
