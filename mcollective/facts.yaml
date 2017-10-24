@@ -52,26 +52,26 @@ load_averages:
 mco_version: 2.10.5
 memory:
   swap:
-    available: 961.52 MiB
-    available_bytes: 1008226304
-    capacity: 6.10%
+    available: 893.73 MiB
+    available_bytes: 937148416
+    capacity: 12.72%
     total: 1.00 GiB
     total_bytes: 1073737728
-    used: 62.48 MiB
-    used_bytes: 65511424
+    used: 130.26 MiB
+    used_bytes: 136589312
   system:
-    available: 248.82 MiB
-    available_bytes: 260911104
-    capacity: 91.26%
+    available: 652.08 MiB
+    available_bytes: 683753472
+    capacity: 77.10%
     total: 2.78 GiB
     total_bytes: 2985873408
-    used: 2.54 GiB
-    used_bytes: 2724962304
+    used: 2.14 GiB
+    used_bytes: 2302119936
 mountpoints:
   /:
-    available: 5.57 GiB
-    available_bytes: 5984043008
-    capacity: 30.22%
+    available: 5.36 GiB
+    available_bytes: 5757378560
+    capacity: 32.86%
     device: /dev/mapper/cl-root
     filesystem: xfs
     options:
@@ -83,8 +83,8 @@ mountpoints:
       - noquota
     size: 7.99 GiB
     size_bytes: 8575254528
-    used: 2.41 GiB
-    used_bytes: 2591211520
+    used: 2.62 GiB
+    used_bytes: 2817875968
   /boot:
     available: 875.78 MiB
     available_bytes: 918319104
@@ -119,8 +119,8 @@ mountpoints:
     used_bytes: 4096
   /run:
     available: 1.35 GiB
-    available_bytes: 1450438656
-    capacity: 2.85%
+    available_bytes: 1450528768
+    capacity: 2.84%
     device: tmpfs
     filesystem: tmpfs
     options:
@@ -131,8 +131,8 @@ mountpoints:
       - mode=755
     size: 1.39 GiB
     size_bytes: 1492934656
-    used: 40.53 MiB
-    used_bytes: 42496000
+    used: 40.44 MiB
+    used_bytes: 42405888
   /run/user/0:
     available: 284.76 MiB
     available_bytes: 298590208
@@ -147,26 +147,6 @@ mountpoints:
       - relatime
       - size=291592k
       - mode=700
-    size: 284.76 MiB
-    size_bytes: 298590208
-    used: 0 bytes
-    used_bytes: 0
-  /run/user/1001:
-    available: 284.76 MiB
-    available_bytes: 298590208
-    capacity: 0%
-    device: tmpfs
-    filesystem: tmpfs
-    options:
-      - rw
-      - seclabel
-      - nosuid
-      - nodev
-      - relatime
-      - size=291592k
-      - mode=700
-      - uid=1001
-      - gid=1001
     size: 284.76 MiB
     size_bytes: 298590208
     used: 0 bytes
@@ -320,10 +300,10 @@ ssh:
       sha256: SSHFP 1 2 56f17ce9554282ffddcf5c037e450926f082f4a7362ea6aca4e4e1080e5828dc
     key: AAAAB3NzaC1yc2EAAAADAQABAAABAQDsLOALK2NKhv59HzRa8CByqUDwGSzaelR8dTMINvUs8alKbHHCL1qLzUcvDjLNv58aG14NVtAtuKzw/jtI5oA4hWivIYrUMjDeeEij8rZRXhI3bR1dU9Zi5yO90FIlPtl9GsNTTaCDVBBfKDuyyalG2SyTBD4wks8KRnDsmSLPIjl697ar6tM+VqKl+onm8BwsVOcv6zzF8ogx8EQl5Z7dx5JMkhA5GD7qVdgSwsac594JsZSXuNENyKSrYRG6dC51CN3joD9NL8t/syrvIJpWPA2xNBJ6VT+BLYr8gTPvjg79tf7gZZVPWpXxIPVKjFu83BEKL+jFd4zSLdmJhqS9
 system_uptime:
-  days: 16
-  hours: 390
-  seconds: 1405942
-  uptime: 16 days
+  days: 17
+  hours: 428
+  seconds: 1542546
+  uptime: 17 days
 systemd: true
 systemd_version: "219"
 timezone: EDT
