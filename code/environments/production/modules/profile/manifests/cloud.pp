@@ -1,54 +1,37 @@
 class profile::cloud {
 
+ $clients = lookup('clients')
+ $clients.each | $t | {
+   $vpcs    = lookup("${t}:cloud:vpcs", Data, 'first',undef)
+   $sgs     = lookup("${t}:cloud:sgs", Data, 'first',undef)
+   $subnets = lookup("${t}:cloud:subnets", Data, 'first',undef)
 
-  #notify {"teste": }
- # ec2_vpc { 'Teste-vpc':
- #   ensure     => present,
- #   region     => 'sa-east-1',
- #   cidr_block => '10.0.0.0/24',
- #   tags       => {
- #     tag_name => 'value',
- #   },
- # }
+   if ($vpcs != undef) {
+     $vpcs.each | $vpc | {
+       ec2_vpc { $vpc[0]:
+         * => $vpc[1],
+       }
+     } 
+   }
 
- # ec2_vpc_subnet { 'Teste-subnet':
- #   ensure                  => present,
- #   region                  => 'us-east-1',
- #   cidr_block              => '10.0.0.0/24',
- #   availability_zone       => 'sa-east-1a',
- #   map_public_ip_on_launch => true,
- #   vpc                     => 'Teste-vpc',
- #   tags                    => {
- #     tag_name => 'value',
- #   },
- # }
+   if ($subnets != undef) {
+     $subnets.each | $subnet | {
+       ec2_vpc_subnet { $subnet[0]:
+         * => $subnet[1],
+       }
+     } 
+   }
 
- # ec2_securitygroup { 'name-of-security-group':
- #   ensure      => present,
- #   region      => 'sa-east-1',
- #   vpc         => 'Teste-vpc',
- #   description => 'a description of the group',
- #   ingress     => [{
- #     protocol  => 'tcp',
- #     port      => 22,
- #     cidr      => '0.0.0.0/0',
- #   }],
- #   tags        => {
- #     tag_name  => 'value',
- #   },
- # }
+   if ($sgs != undef) {
+     $sgs.each | $sg | {
+       ec2_securitygroup { $sg[0]:
+         * => $sg[1],
+       }
+     } 
+   }
+ } 
 
-  ec2_instance { 'teste':
-    ensure            => running,
-    region            => 'sa-east-1',
-    image_id          => 'ami-01d3456d', # you need to select your own AMI
-    instance_type     => 't2.micro',
-    key_name          => 'vmazzi',
-    subnet            => 'teste-subnet',
-    security_groups   => ['default'],
-    tags              => {
-      tag_name => 'teste',
-    },
-  }
-
+ resources { ['ec2_securitygroup', 'ec2_vpc_subnet', 'ec2_vpc']:
+   purge => 'true',
+ }
 }

@@ -210,9 +210,11 @@ Puppet::Type.type(:ec2_securitygroup).provide(:v2, :parent => PuppetX::Puppetlab
 
   def destroy
     Puppet.info("Deleting security group #{name} in region #{target_region}")
-    ec2.delete_security_group(
-      group_id: @property_hash[:id]
-    )
-    @property_hash[:ensure] = :absent
+    if name != "default"
+      ec2.delete_security_group(
+        group_id: @property_hash[:id]
+      )
+      @property_hash[:ensure] = :absent
+    end
   end
 end
